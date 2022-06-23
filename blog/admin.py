@@ -4,5 +4,7 @@ from blog.models import Post
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug':('title',)}
-    pass
+    list_display = ('title', 'status')
+    exclude = ('published', 'status')
+    
 
