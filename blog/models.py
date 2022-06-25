@@ -8,8 +8,8 @@ class Post(models.Model):
         ('withdrawn', 'Withdrawn'),
     ]
 
-    title = models.CharField(max_length=255)
-    slug = models.SlugField()
+    title = models.CharField(max_length=255, unique=True)
+    slug = models.SlugField(unique=True)
     summary = models.TextField()
     body = models.TextField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
