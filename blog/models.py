@@ -9,6 +9,12 @@ class Base(models.Model):
     abstract = True
 
 
+class Tag(Base):
+    name = models.CharField(max_length=20, unique=True)
+
+    def __str__(self):
+        return self.name
+
 class Post(Base):
     STATUS_CHOICES = [
         ('draft', 'Draft'),
@@ -22,6 +28,7 @@ class Post(Base):
     body = models.TextField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
     published = models.DateTimeField(null=True, blank=True)
+    tags = models.ManyToManyField(Tag, related_name='posts', related_query_name='post', blank=True)
 
     class Meta:
         ordering = ('-published',)
