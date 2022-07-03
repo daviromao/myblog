@@ -33,6 +33,7 @@ class Post(Base):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
     published = models.DateTimeField(null=True, blank=True)
     tags = models.ManyToManyField(Tag, related_name='posts', related_query_name='post', blank=True)
+    image = models.ImageField(upload_to='posts/%Y/%d', blank=True)
 
     class Meta:
         ordering = ('-published',)
