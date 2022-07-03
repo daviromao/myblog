@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 class Base(models.Model):
   created_at = models.DateTimeField(auto_now_add=True)
@@ -14,6 +14,10 @@ class Tag(Base):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("blog:list_by_topic", kwargs={"slug": self.name})
+    
 
 class Post(Base):
     STATUS_CHOICES = [
