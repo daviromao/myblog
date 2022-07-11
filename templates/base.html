@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-{% load static %}
+{% load tailwind_tags %}
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Baloo+Thambi+2" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <script src="https://kit.fontawesome.com/4bed414b26.js" crossorigin="anonymous"></script>
     
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% tailwind_css %}
 
     <title>{% block title %}Davi Romão{% endblock title %}</title>
 </head>
@@ -20,7 +18,7 @@
 <body>
 
     <nav>
-        <a class="name-logo" href="{% url 'blog:post_list' %}">Davi Romão</a>
+        <a href="{% url 'blog:post_list' %}">Davi Romão</a>
         <ul>
             <li><a href="{% url 'blog:post_list' %}">Home</a></li>
             <li><a href="{% url 'pages:works' %}">Works</a></li>
@@ -28,19 +26,19 @@
         </ul>
     </nav>
 
-    <div class="container">
-        <div class="content">
+    <div id="container">
+        <div>
             {% block content %}
             {% endblock content %}
         </div>
     </div>
 
     <footer>
-        <div class="copyright">
-            <span id="copy">&copy {% now "Y" %} Davi da Silva Romão.</span>
-            All right reserved.
+        <div>
+            <span>&copy {% now "Y" %} Davi da Silva Romão.</span>
+            <span>All right reserved.</span>
         </div>
-        <div class="social-media">
+        <div>
             <i class="fa-brands fa-linkedin"></i>
             <i class="fa-brands fa-github-square"></i>
             <i class="fa-brands fa-twitter-square"></i>
