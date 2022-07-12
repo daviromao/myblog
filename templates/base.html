@@ -8,21 +8,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/4bed414b26.js" crossorigin="anonymous"></script>
     
     {% tailwind_css %}
 
-    <title>{% block title %}Davi Romão{% endblock title %}</title>
+    <title> Davi Romão | {% block title %}{% endblock title %}</title>
 </head>
 
-<body>
+<body class="h-screen">
 
-    <nav>
-        <a href="{% url 'blog:post_list' %}">Davi Romão</a>
-        <ul>
-            <li><a href="{% url 'blog:post_list' %}">Home</a></li>
-            <li><a href="{% url 'pages:works' %}">Works</a></li>
-            <li><a href="{% url 'pages:about' %}">About</a></li>
+    <nav class="h-1/6 max-h-28 w-full flex justify-center bg-zinc-800">
+        <ul class="flex flex-row justify-center items-center text-neutral-200 text-xl font-bold text-center font-sans ">
+            <li class="h-3/4 flex hover:bg-[#00000020] hover:text-white transition-all delay-100">
+                <a href="{% url 'blog:post_list' %}"
+                class="m-auto px-11 py-1 border-r border-r-neutral-900">
+                Home
+                </a>
+            </li>
+            <li class="h-3/4 flex hover:bg-[#00000020] hover:text-white transition-all delay-100">
+                <a href="{% url 'pages:works' %}"
+                class="m-auto px-11 py-1 border-r border-r-neutral-900 border-l border-l-neutral-600">
+                Works
+                </a>
+            </li>
+            <li class="h-3/4 flex hover:bg-[#00000020] hover:text-white transition-all delay-100">
+                <a href="{% url 'pages:about' %}"
+                class="m-auto px-11 py-1 border-l border-l-neutral-600">
+                About
+                </a>
+            </li>
         </ul>
     </nav>
 
