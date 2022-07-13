@@ -42,7 +42,11 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'luckiest-guy': ['Luckiest Guy', 'sans-serif']
+            }
+        },
     },
     plugins: [
         /**

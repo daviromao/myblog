@@ -21,7 +21,7 @@
 
 <body class="h-screen">
 
-    <nav class="h-1/6 max-h-28 w-full flex justify-center bg-zinc-800">
+    <nav class="flex justify-center h-1/6 max-h-28 w-full bg-zinc-800">
         <ul class="flex flex-row justify-center items-center text-neutral-200 text-xl font-bold text-center font-sans ">
             <li class="h-3/4 flex hover:bg-[#00000020] hover:text-white transition-all delay-100">
                 <a href="{% url 'blog:post_list' %}"
@@ -44,7 +44,31 @@
         </ul>
     </nav>
 
-    <div id="container">
+    <section class="h-5/6 my-custom-bg m-0 p-0">
+        <div class="flex items-center justify-center space-x-44 h-full m-0 p-12 my-custom-pattern">
+            <div class="flex flex-col items-center font-luckiest-guy text-white">
+                <span class="text-9xl">Davi</span>
+                <span class="text-7xl">Romão</span>
+            </div>
+            <div class="text-white w-96">
+                <p class="font-sans text-5xl font-bold mb-5">
+                    Olá! 👋
+                </p>
+                <p class="font-sans text-3xl font-medium mb-2 text-neutral-50">
+                    Seja bem-vindo ao meu lugarzinho.
+                </p>
+                <p class="font-semibold text-neutral-200 mb-2">
+                    É nele que você irá aprender um pouco mais
+                    sobre algumas das tecnologias que utilizo.
+                </p>
+                <p class="font-semibold text-neutral-200 mb-2">
+                    Aproveite para conhecer mais <a class="text-white italic" href="{% url 'pages:about' %}#container">sobre mim</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div id="container" class="mx-3">
         <div>
             {% block content %}
             {% endblock content %}
