@@ -46,7 +46,8 @@ module.exports = {
             fontFamily: {
                 'luckiest-guy': ['"Luckiest Guy"', 'sans-serif'],
                 'baloo-thambi': ['"Baloo Thambi 2"', 'sans-serif'],
-                'inter': ['Inter', 'sans-serif']
+                'inter': ['Inter', 'sans-serif'],
+                'poppins': ['Poppins', 'sans-serif']
             }
         },
     },
