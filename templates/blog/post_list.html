@@ -11,28 +11,22 @@
 
 
 {% for post in posts %}
-    <div class="flex flex-row h-fit my-11">
-        <div class="bg-neutral-800 rounded-xl">
-            <a href={% url 'blog:post_detail' post.slug %}>
-            {% if post.image %}
-            <img class="w-[290px] h-[190px] rounded-xl border-2 border-b-4 border-solid border-neutral-800" src="/media/{{post.image}}" alt="">
-            {% else %}
-            <img class="w-[290px] h-[190px] rounded-xl border-2 border-b-4 border-solid border-neutral-800" src="{% static 'images/no_image.jpg' %}" alt="">
-            {% endif %}
-            </a>
+    <div class="flex flex-row h-fit my-11 bg-white drop-shadow-md rounded-sm">
+        <div class="w-1 bg-[#501951] rounded-sm">
+
         </div>
-        <div class="w-[427px] ml-6">
-            <div class="font-extrabold text-2xl normal-case font-baloo-thambi text-neutral-800 pt-2 mb-2">
+        <div class="w-full ml-6 py-3">
+            <div class="font-extrabold text-2xl normal-case font-baloo-thambipt-2 mb-2">
                 <a href={% url 'blog:post_detail' post.slug %}>
                     {{ post.title|lower|capfirst }}
                 </a>
             </div>
-            <p class="font-baloo-thambi font-extrabold text-neutral-600">
+            <p class="font-inter text-neutral-600">
                 <a href={% url 'blog:post_detail' post.slug %}>
                 {{post.summary|truncatechars:150|capfirst}}
                 </a>
             </p>
-            <p class="italic font-inter text-xs font-neutral-600">
+            <p class="italic font-inter text-xs font-neutral-600 my-2">
                 {{post.created_at|date}}
             </p>
             <div class="flex items-center font-inter text-xs font-bold text-[#4F4F4F] space-x-1 mt-1" >
@@ -45,7 +39,6 @@
             </div>
         </div>
     </div>
-    <hr>
 {% empty %}
 <p>No posts are available.</p>
 {% endfor %}
