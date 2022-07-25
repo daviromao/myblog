@@ -92,6 +92,11 @@
                 <div class="font-bold">
                     Todas categorias
                 </div>
+                <div class="flex flex-wrap font-inter text-sm font-bold text-[#4F4F4F] mt-2">
+                {% for tag in tags %}
+                <a class="items-center hover:text-[#0e0e0e] px-1" href="{{ tag.get_absolute_url  }}">{{tag.name}}</a>
+                {% endfor %}
+                </div>
             </div>
         </div>
     </div>
