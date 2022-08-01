@@ -1,6 +1,7 @@
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from blog.models import Post, Tag
+from django.db.models import Q
 from django.views.generic import ListView, DetailView
 
 
@@ -19,6 +20,21 @@ class PostListView(ListView):
             queryset = queryset.filter(tags=self.tag)
 
         return queryset
+
+class SearchView(ListView):
+    model = Post
+    context_object_name = 'posts'
+    template_name = "blog/post_search.html"
+
+    def get_queryset(self):
+        query = self.request.GET.get("q") or ""
+
+        posts_list = Post.objects.filter(
+            Q(title__icontains=query) |
+            Q(body__icontains=query)
+        )
+
+        return posts_list
 
 class PostDetailView(DetailView):
     model = Post
