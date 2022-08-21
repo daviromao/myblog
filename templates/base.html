@@ -80,6 +80,9 @@
                 <div class="font-bold">
                     Buscar por artigos
                 </div>
+                <form class="rounded-2xl my-2" action="{% url 'blog:search_list' %}" method="get">
+                    <input class="rounded-2xl" name="q" type="text" placeholder="Search...">
+                </form>
             </div>
             <hr>
             <div>
