@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from blog.models import Post, Tag
 from django.db.models import Q
 from django.views.generic import ListView, DetailView
-
+from functools import reduce
 
 class PostListView(ListView):
     model = Post
@@ -28,11 +28,15 @@ class SearchView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get("q") or ""
+        words = query.split(' ')
 
-        posts_list = Post.objects.filter(
-            Q(title__icontains=query) |
-            Q(body__icontains=query)
-        )
+        f = [Q(title__icontains=word) |
+             Q(body__icontains=word) |
+             Q(tags__name__icontains=word) for word in words]
+        
+        f = reduce(lambda x, y: x | y, f)
+        
+        posts_list = Post.objects.filter(f)
 
         return posts_list
 
