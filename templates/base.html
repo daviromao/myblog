@@ -7,7 +7,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&family=Luckiest+Guy&family=Inter&family=Poppins" rel="stylesheet">
@@ -28,12 +27,6 @@
                 <a href="{% url 'blog:post_list' %}"
                 class="m-auto px-11 py-1 border-r border-r-neutral-900">
                 Home
-                </a>
-            </li>
-            <li class="h-3/4 flex hover:bg-[#00000020] hover:text-white transition-all delay-100">
-                <a href="{% url 'pages:works' %}"
-                class="m-auto px-11 py-1 border-r border-r-neutral-900 border-l border-l-neutral-600">
-                Works
                 </a>
             </li>
             <li class="h-3/4 flex hover:bg-[#00000020] hover:text-white transition-all delay-100">
@@ -63,7 +56,7 @@
                     sobre algumas das tecnologias que utilizo.
                 </p>
                 <p class="font-semibold text-neutral-200 mb-2">
-                    Aproveite para conhecer mais <a class="text-white italic" href="{% url 'pages:about' %}#container">sobre mim</a>.
+                    Aproveite para conhecer mais <a class="text-white italic" href="{% url 'pages:about' %}">sobre mim</a>.
                 </p>
             </div>
         </div>
@@ -71,7 +64,7 @@
 
     <div class="flex justify-center mx-auto w-full px-10 mt-16 space-x-10 text-[#2c354c]">
         <div class="w-[723px]">
-            <div>
+            <div id="content">
                 {% block content %}
                 {% endblock content %}
             </div>
@@ -125,6 +118,8 @@
             </a>
                 
         </div>
+        {% block extrafooter %}
+        {% endblock extrafooter %}
     </footer>
 </body>
 

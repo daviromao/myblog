@@ -3,12 +3,23 @@
 {% load static %}
 
 {% block content %}
-<h1> About </h1>
-<pre>
-about...
-about...
-about...
-about...
-about...
-</pre>
+<h2 class="text-lg font-bold">
+Olá! Me chamo Davi, sou um Desenvolvedor Web.
+</h2>
+<p>
+  Descobri a programação logo quando criança e desde então tenho total certeza do que mais quero: usar da programação como meio para criar inovações!
+</p>
+<p>
+Sou uma pessoa que aprecia a informática, programação, computadores e tudo que envolve tecnologias, especialmente por ter a capacidade de aprende-las de forma autônoma e rápida.
+Creio que posso agregar em projetos reais que façam a diferença para pessoas reais, por isso, tenho a necessidade de consumir, aprender, ensinar e aplicar conhecimento.
+Compartilhar e aprender são meus pilares.
+</p>
 {% endblock %}
+{% block extrafooter %}
+<script>
+  {# smooth scroll to content #}
+  window.onload = function() {
+      document.getElementById('content').scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+</script>
+{% endblock extrafooter %}

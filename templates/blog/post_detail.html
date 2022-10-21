@@ -11,7 +11,14 @@
     </div>
 </div>
 {% endblock %}
-
+{% block extrafooter %}
+<script>
+    {# smooth scroll to content #}
+    window.onload = function() {
+        document.getElementById('content').scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+</script>
+{% endblock %}
 
 
 
